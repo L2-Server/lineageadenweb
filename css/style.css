@@ -2308,3 +2308,17 @@ p {
 	background-size: cover;
 	height: 100%;
 }
+
+.w3_navigation_pos {
+	position: absolute;
+	left: 50%;
+	top: -30px;
+	/* Ajusta según necesidad */
+	transform: translateX(-50%);
+}
+
+.w3_navigation_pos img {
+	max-width: 250px;
+	/* Ajusta el tamaño */
+	height: auto;
+}
