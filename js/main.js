@@ -113,7 +113,7 @@ async function updateServerStatus()
     {
         // Verificar estado del servidor (online/offline)
         //const responseStatus = await fetch("http://localhost:3000/status");  // Endpoint para verificar estado
-        const responseStatus = await fetch("http://149.50.140.209:3000/status");  // Endpoint para verificar estado
+        const responseStatus = await fetch("https://149.50.140.209:3000/status");  // Endpoint para verificar estado
         const statusData = await responseStatus.json();
 
         const serverStatusElement = document.getElementById("server-status");
@@ -131,7 +131,7 @@ async function updateServerStatus()
         }
 
         // Obtener número de jugadores online
-        const responsePlayers = await fetch("http://149.50.140.209:3000/api/characters/charactersOnline");  // Endpoint para obtener jugadores online
+        const responsePlayers = await fetch("https://149.50.140.209:3000/api/characters/charactersOnline");  // Endpoint para obtener jugadores online
         const playersData = await responsePlayers.json();
 
         // Actualizar número de jugadores online
