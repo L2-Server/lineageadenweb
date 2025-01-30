@@ -2322,3 +2322,11 @@ p {
 	/* Ajusta el tamaño */
 	height: auto;
 }
+
+#server-status {
+	font-weight: bold;
+	margin-left: 0px;
+	/* Separar un poco el texto "Server Status:" del estado */
+	font-size: 1.2em;
+	/* Ajustar tamaño de la palabra */
+}

@@ -106,3 +106,43 @@ window.onclick = function (event)
         closeModal();
     }
 };
+
+async function updateServerStatus()
+{
+    try
+    {
+        // Verificar estado del servidor (online/offline)
+        //const responseStatus = await fetch("http://localhost:3000/status");  // Endpoint para verificar estado
+        const responseStatus = await fetch("http://149.50.140.209:3000/status");  // Endpoint para verificar estado
+        const statusData = await responseStatus.json();
+
+        const serverStatusElement = document.getElementById("server-status");
+        const playersOnlineElement = document.getElementById("players-online");
+
+        // Actualizar estado del servidor
+        if (statusData.online)
+        {
+            serverStatusElement.textContent = "Online";
+            serverStatusElement.style.color = "green";  // Color verde si está online
+        } else
+        {
+            serverStatusElement.textContent = "Offline";
+            serverStatusElement.style.color = "red";  // Color rojo si está offline
+        }
+
+        // Obtener número de jugadores online
+        const responsePlayers = await fetch("http://149.50.140.209:3000/api/characters/charactersOnline");  // Endpoint para obtener jugadores online
+        const playersData = await responsePlayers.json();
+
+        // Actualizar número de jugadores online
+        playersOnlineElement.textContent = playersData.onlinePlayers;
+
+    } catch (error)
+    {
+        console.log("Error al obtener datos del servidor:", error);
+    }
+}
+
+// Llamar a la función para actualizar los datos al cargar la página
+updateServerStatus();
+
